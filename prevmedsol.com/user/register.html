@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2PrevMed Solutions</title>
+<!-- Bootstrap -->
+<link href="../css/bootstrap.css" rel="stylesheet">
+<link href="../css/customize.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css">
+<link href="../css/buil.css" rel="stylesheet">
+<link href="../css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+<script src='../js/jquery-1.11.3.min.js'></script>
+</head><body>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#defaultNavbar1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                <a href="index.html" class="site_title">
+                    <img src="../images/logo_1.png" height="60" alt="logo"></a></div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="navbar-collapse" id="defaultNavbar1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="register.html" >Register</a></li>
+                    <li><a href="index.html">Log In</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid --> 
+    </nav>
+
+    <div class="container-fluid" style="margin:100px 0 0 0">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-3">
+                <form id="form1" method="post" action="register.html" onsubmit="return validateForm();">
+                    <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+                    <div class="row">
+                        <span id="validations" class="error"></span>
+                        <div class="col-md-8">
+                            <div class="form-heading">
+                                <h4 class="text-center" >Registration Form</h4>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group2">
+                                        <input type="text" name="first_name" id="first_name" placeholder="First Name" class="form-control">
+                                        <span id="first_name_validation" class="error"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group2">
+                                        <input type="text" name="middle_name" id="middle_name" placeholder="Middle Name (Optional)" class="form-control">
+                                        <span id="middle_name_validation" class="error"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group2">
+                                        <input type="text" name="last_name" id="last_name" placeholder="Last Name" class="form-control">
+                                        <span id="last_name_validation" class="error"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="form-group2">
+                                <input type="email" name="username" id="username" placeholder="Enter Email ID" class="form-control">
+                                <span id="email_validation" class="error"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4" style="margin:10px 0 0 0; color:#032B98"> </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-4">
+
+                            <div class="form-group2">
+
+                                <input type="password" name="password" id="password" placeholder="Password" class="form-control">
+
+                                <span id="password_validation" class="error"></span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-4">
+
+                            <div class="form-group2">
+
+                                <input type="password" name="repeat_password" id="repeat_password" placeholder="Confirm Password" class="form-control">
+
+                                <span id="repeat_password_validation" class="error"></span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-4">
+
+                            <div class="form-group2">
+
+                                <input type="text" name="phone_number" id="phone_number" placeholder="Mobile Number" class="form-control" maxlength="10">
+
+                                <span id="phone_number_validation" class="error"></span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-4">
+
+                            <div class="form-group2">
+
+                                <input type="text" name="fax_number" id="fax_number" placeholder="Fax Number (Optional)" class="form-control">
+
+                                <span id="fax_number_validation" class="error"></span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-4" style="margin-top:10px;margin-bottom:10px;">
+
+                            <div class="radio radio-info radio-inline" >
+
+                                <input type="radio" id="inlineRadio1" value="male" name="gender">
+
+                                <label for="inlineRadio1"> Male </label>
+
+                            </div>
+
+                            <div class="radio radio-info radio-inline">
+
+                                <input type="radio" id="inlineradio1" value="female" name="gender">
+
+                                <label for="inlineradio1"> Female </label>
+
+                            </div>
+
+                            <span id="gender_validation" class="error"></span>
+
+                        </div>
+
+                        <div class="col-md-4">
+
+                            <div class="control-group">
+                                <div class="form-group2">
+
+                                    <!--<div class=" input-append date form_date" data-date="" data-date-format="dd-MM-yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">-->
+
+                                    <input size="16" type="text" name="birth_date" id="birth_date" value="" class="form-control" placeholder="Date of Birth (month/day/year)" style="background-color:#fff; margin-bottom:-10px">
+
+              <!--<span class="add-on"><i class="icon-calender"></i></span> <span class="add-on"><i class="icon-th"></i></span>-->
+                                </div>
+
+                                <input type="hidden" id="dtp_input2" value="">
+
+                                <span id="birth_date_validation" class="error"></span>
+
+                                <br/>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-8">
+
+                            <div class="form-group2">
+
+                                <select id="blood_group" name="blood_group" class="form-control">
+
+                                    <option value="">Select Blood group</option>
+
+                                    <option value="O+">O+</option>
+
+                                    <option value="O-">O-</option>
+
+                                    <option value="A+">A+</option>
+
+                                    <option value="A-">A-</option>
+
+                                    <option value="B+">B+</option>
+
+                                    <option value="B-">B-</option>
+
+                                    <option value="AB+">AB+</option>
+
+                                    <option value="AB-">AB-</option>
+                                    <option value="Dontknow">Don`t know</option>
+
+                                </select>
+
+                                <span id="blood_group_validation" class="error"></span>
+
+                            </div>
+
+                            <div class="form-group2">
+
+                                <input type="text" name="country" id="country" placeholder="Country" class="form-control">
+
+                                <span id="country_validation" class="error"></span>
+
+                            </div>
+
+                            <div class="form-group2">
+
+                                <input type="text" name="state" id="state" placeholder="State" class="form-control">
+
+                                <span id="state_validation" class="error"></span>
+
+                            </div>
+
+                            <div class="form-group2">
+
+                                <input type="text" name="city" id="city" placeholder="City" class="form-control">
+
+                                <span id="city_validation" class="error"></span>
+
+                            </div>
+
+                            <div class="form-group2">
+
+                                <input type="text" name="address1" id="address1" placeholder="Street1" class="form-control">
+
+                                <span id="address1_validation" class="error"></span>
+
+                            </div>
+
+                            <div class="form-group2">
+
+                                <input type="text" name="address2" id="address2" placeholder="Street2" class="form-control">
+
+                                <span id="address2_validation" class="error"></span>
+
+                            </div>      
+
+                            <div class="form-group2">
+
+                                <input type="text" name="zip_code" id="zip_code" placeholder="Zip Code" class="form-control">
+
+                                <span id="zip_code_validation" class="error"></span>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-md-6">
+
+                                    <button type="submit" class="btn btn-block" id="btn-register" name="btn-register">Submit</button>
+
+                                    <div style="color:#6F6F6F;margin-top:5px;text-align:center;">Existing User ? <a href="index.html" style="text-decoration:none;">Sign In</a></div>
+
+                                </div>    
+
+                            </div>
+
+                            <hr>
+
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+
+    <script src="../js/jquery-1.11.3.min.js"></script> 
+    <script src="../js/bootstrap.js"></script> 
+    <script src="../js/jquery.min.js"></script> 
+    <script type="text/javascript" src="../js/bootstrap-datetimepicker.js" charset="UTF-8"></script> 
+
+    <script>
+
+            function validateForm() {
+                var valid = 1;
+                var username = document.getElementById('username');
+                var email_validation = document.getElementById("email_validation");
+                var first_name = document.getElementById('first_name');
+
+                var first_name_validation = document.getElementById("first_name_validation");
+                var message_validation = document.getElementById("message_validation");
+
+                var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+                var filter1 = /^([a-zA-Z_\.\-])/;
+                var nameFilter = /^[A-Za-z]+$/;
+
+                var phoneno = /^\d{10}$/;
+
+                var faxno = /^\+?[0-9\s]{6,}$/;
+
+                var zipcode = /^\d{6}$/;
+                //all fields validations
+                /* recently commented
+                if (first_name.value === "" && last_name.value === "" && username.value === "" && password.value === "" && repeat_password.value === "" && phone_number.value === ""
+                        && birth_date.value === "" && blood_group.value === "" && country.value === "" && state.value === "" && city.value === "" && address1.value === ""
+                        && address2.value === "" && zip_code.value === "") {
+                        */
+                if (first_name.value === "" && last_name.value === "" && username.value === "" && password.value === "" && repeat_password.value === "" && phone_number.value === ""
+                        && birth_date.value === "" && blood_group.value === "" && country.value === "" && state.value === "" && city.value === "" && address1.value === ""
+                         && zip_code.value === "") {
+
+                    valid = 0;
+                    validations.innerHTML = "<span style='background-color:#be2015;Color:#FFFFFF;'><b>Please fill the mandatory fields...</b><span style=' cursor: pointer;' id='RegError' onclick='hideErrors()'>[X]</span></span>";
+                    validations.style.display = "block";
+                    first_name.style.borderColor = "red";
+                    last_name.style.borderColor = "red";
+                    username.style.borderColor = "red";
+                    password.style.borderColor = "red";
+                    repeat_password.style.borderColor = "red";
+                    phone_number.style.borderColor = "red";
+                    //gender.style.borderColor = "red";
+                    birth_date.style.borderColor = "red";
+                    blood_group.style.borderColor = "red";
+                    country.style.borderColor = "red";
+                    state.style.borderColor = "red";
+                    city.style.borderColor = "red";
+                    address1.style.borderColor = "red";
+                    // recently commented address2.style.borderColor = "red";
+                    zip_code.style.borderColor = "red";
+                    return false;
+
+                }
+
+                //first_name
+
+                if (first_name.value === "") {
+
+                    valid = 0;
+                    first_name.style.borderColor = "red";
+                    first_name_validation.innerHTML = "First Name is Required";
+                    first_name_validation.style.display = "block";
+                    return false;
+                } /* commented recently
+                else if (!filter1.test(first_name.value)) {
+                */
+                else if (!nameFilter.test(first_name.value)) {
+                    valid = 0;
+                    first_name_validation.innerHTML = "Numbers not allowed";
+                    first_name_validation.style.display = "block";
+                    return false;
+                } else {
+                    first_name.style.borderColor = "transparent";
+                    first_name_validation.style.display = "none";
+                }
+
+                //middle_name
+                if (!filter1.test(middle_name.value) && middle_name.value != "") {
+                    valid = 0;
+                    middle_name_validation.innerHTML = "Numbers not allowed";
+                    middle_name_validation.style.display = "block";
+                    return false;
+                } else {
+                    middle_name_validation.style.display = "none";
+                }
+
+                if (first_name.value != "" && last_name.value === "" && username.value === "" && password.value === "" && repeat_password.value === "" && phone_number.value === ""
+                        && birth_date.value === "" && blood_group.value === "" && country.value === "" && state.value === "" && city.value === "" && address1.value === ""
+                        && zip_code.value === "") {
+
+                    valid = 0;
+                    last_name.style.borderColor = "red";
+                    username.style.borderColor = "red";
+                    password.style.borderColor = "red";
+                    repeat_password.style.borderColor = "red";
+                    phone_number.style.borderColor = "red";
+                    birth_date.style.borderColor = "red";
+                    blood_group.style.borderColor = "red";
+                    country.style.borderColor = "red";
+                    state.style.borderColor = "red";
+                    city.style.borderColor = "red";
+                    address1.style.borderColor = "red";
+                    //address2.style.borderColor = "red";
+                    zip_code.style.borderColor = "red";
+                    return false;
+
+                }
+                //last_name
+                if (last_name.value === "") {
+                    valid = 0;
+                    last_name.style.borderColor = "red";
+                    last_name_validation.innerHTML = "Last Name is Required";
+                    last_name_validation.style.display = "block";
+                    return false;
+                } else if (!filter1.test(last_name.value)) {
+                    valid = 0;
+                    last_name_validation.innerHTML = "Numbers not allowed";
+                    last_name_validation.style.display = "block";
+                    return false;
+                } else {
+                    last_name.style.borderColor = "transparent";
+                    last_name_validation.style.display = "none";
+                }
+
+                //user name
+                if (username.value === "") {
+                    valid = 0;
+                    email_validation.innerHTML = "Email ID is Required";
+                    email_validation.style.display = "block";
+                    return false;
+                } else if (!filter.test(username.value)) {
+                    valid = 0;
+                    email_validation.innerHTML = "Invalid email address";
+                    email_validation.style.display = "block";
+                    return false;
+                } else {
+                    username.style.borderColor = "transparent";
+                    email_validation.style.display = "none";
+                }
+
+                //password
+                if (password.value === "") {
+                    valid = 0;
+                    password_validation.innerHTML = "Password is Required";
+                    password_validation.style.display = "block";
+                    return false;
+                } else if (password.value.length < 6) {
+                    valid = 0;
+                    password_validation.innerHTML = "Password should be atleast 6 chars";
+                    password_validation.style.display = "block";
+                    return false;
+                } else {
+                    username.style.borderColor = "transparent";
+                    password_validation.style.display = "none";
+                }
+
+                //repeat_password
+                if (password.value != repeat_password.value) {
+                    valid = 0;
+                    repeat_password_validation.innerHTML = "Passwords do not match";
+                    repeat_password_validation.style.display = "block";
+                    return false;
+                } else {
+                    repeat_password.style.borderColor = "transparent";
+                    repeat_password_validation.style.display = "none";
+                }
+
+                //phone number
+                if (phone_number.value === "") {
+                    valid = 0;
+                    phone_number_validation.innerHTML = "Phone Number is Required";
+                    phone_number_validation.style.display = "block";
+                    return false;
+                } else if (!phoneno.test(phone_number.value)) {
+                    valid = 0;
+                    phone_number_validation.innerHTML = "Please enter valid 10 digit mobile number";
+                    phone_number_validation.style.display = "block";
+                    return false;
+
+                } else {
+                    phone_number.style.borderColor = "transparent";
+                    phone_number_validation.style.display = "none";
+
+                }
+
+
+                //fax number
+
+                if (fax_number.value === "") {
+
+                    valid = 1;
+
+                } else if (!faxno.test(fax_number.value)) {
+
+                    valid = 0;
+
+                    fax_number_validation.innerHTML = "characters not allowed";
+
+                    fax_number_validation.style.display = "block";
+
+                    return false;
+
+                } else {
+                    fax_number.style.borderColor = "transparent";
+                    fax_number_validation.style.display = "none";
+
+                }
+
+
+    //gender_val
+
+                if (!document.getElementsByName("gender")[0].checked && !document.getElementsByName("gender")[1].checked)
+                {
+                    valid = 0;
+                    document.getElementById("gender_validation").innerHTML = "Gender is required";
+                    document.getElementById("gender_validation").style.display = "block";
+                    return false;
+                } else {
+                    document.getElementById("gender_validation").style.display = "none";
+                }
+                //birth_date
+                if (birth_date.value === "") {
+                    valid = 0;
+                    birth_date_validation.innerHTML = "DOB is Required";
+                    birth_date_validation.style.display = "block";
+                    return false;
+                } else {
+                    birth_date.style.borderColor = "transparent";
+                    birth_date_validation.style.display = "none";
+                }
+                //blood_group
+                if (blood_group.value === "") {
+                    valid = 0;
+                    blood_group_validation.innerHTML = "Blood group is Required";
+                    blood_group_validation.style.display = "block";
+                    return false;
+                } else {
+                    blood_group.style.borderColor = "transparent";
+                    blood_group_validation.style.display = "none";
+                }
+                //country
+                if (country.value === "") {
+                    valid = 0;
+                    country_validation.innerHTML = "country is Required";
+                    country_validation.style.display = "block";
+                    return false;
+                } else if (!filter1.test(country.value)) {
+                    valid = 0;
+                    country_validation.innerHTML = "Numbers not allowed";
+                    country_validation.style.display = "block";
+                    return false;
+                } else {
+                    country.style.borderColor = "transparent";
+                    country_validation.style.display = "none";
+                }
+                //state
+                if (state.value === "") {
+                    valid = 0;
+                    state_validation.innerHTML = "state is Required";
+                    state_validation.style.display = "block";
+                    return false;
+                } else if (!filter1.test(state.value)) {
+                    valid = 0;
+                    state_validation.innerHTML = "Numbers not allowed";
+                    state_validation.style.display = "block";
+                    return false;
+                } else {
+                    state.style.borderColor = "transparent";
+                    state_validation.style.display = "none";
+                }
+                //city
+                if (city.value === "") {
+                    valid = 0;
+                    city_validation.innerHTML = "city is Required";
+                    city_validation.style.display = "block";
+                    return false;
+                } else if (!filter1.test(city.value)) {
+                    valid = 0;
+                    city_validation.innerHTML = "Numbers not allowed";
+                    city_validation.style.display = "block";
+                    return false;
+                } else {
+                    city.style.borderColor = "transparent";
+                    city_validation.style.display = "none";
+                }
+                //address1
+                if (address1.value === "") {
+                    valid = 0;
+                    address1_validation.innerHTML = "street is Required";
+                    address1_validation.style.display = "block";
+                    return false;
+                } else if (!filter1.test(address1.value)) {
+                    valid = 0;
+                    address1_validation.innerHTML = "Numbers not allowed";
+                    address1_validation.style.display = "block";
+                    return false;
+                } else {
+                    address1.style.borderColor = "transparent";
+                    address1_validation.style.display = "none";
+                }
+                //address2
+                /* recently commented
+                if (address2.value === "") {
+                    valid = 0;
+                    address2_validation.innerHTML = "street is Required";
+                    address2_validation.style.display = "block";
+                    return false;
+                } else */
+                if ((address2.value != "") && (!filter1.test(address2.value))) {
+                    valid = 0;
+                    address2_validation.innerHTML = "Invalid address";
+                    address2_validation.style.display = "block";
+                    return false;
+                } else {
+                    address2.style.borderColor = "transparent";
+                    address2_validation.style.display = "none";
+                }
+    //zip_code
+                if (zip_code.value === "") {
+                    valid = 0;
+                    zip_code_validation.innerHTML = "zipcode is Required";
+                    zip_code_validation.style.display = "block";
+                    return false;
+                } else if (!zipcode.test(zip_code.value)) {
+                    valid = 0;
+                    zip_code_validation.innerHTML = "Invalid Zip Code";
+                    zip_code_validation.style.display = "block";
+                    return false;
+                } else {
+                    zip_code.style.borderColor = "transparent";
+                    zip_code_validation.style.display = "none";
+                }
+                if (!valid)
+                    return false;
+            }
+
+    </script>
+    <script type="text/javascript">
+        $('.form_date').datetimepicker({
+            language: 'en',
+            weekStart: 1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            minView: 2,
+            forceParse: 0
+        });
+    </script>
+    <script src="../js/jquery-ui.js"></script>
+    <link href="../css/jquery-ui.css" rel="stylesheet">
+    <script>
+        $(function () {
+            $("#country").autocomplete({
+                source: "http://prevmedsol.com/autosearch/index",
+                select: function (event, ui) {
+                    $("#country").val(ui.item.label);//alert(ui.item.label);
+                }
+            });
+        });
+
+        $(function () {
+            $("#state").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "http://prevmedsol.com/autosearch/autosearch_state",
+                        dataType: "json",
+                        data: {
+                            country_name: $("#country").val(),
+                            term: $("#state").val()
+                        },
+                        success: function (data) {
+                            response(data);
+                        }
+                    });
+                },
+                select: function (event, ui) {
+                    $("#state").val(ui.item.label);
+                }
+            });
+        });
+
+        $(function () {
+            $("#city").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "http://prevmedsol.com/autosearch/autosearch_city",
+                        dataType: "json",
+                        data: {
+                            country_name: $("#country").val(),
+                            state_name: $("#state").val(),
+                            term: $("#city").val()
+                        },
+                        success: function (data) {
+                            response(data);
+                        }
+                    });
+                },
+                select: function (event, ui) {
+                    $("#city").val(ui.item.label);
+                }
+            });
+        });
+        function hideErrors()
+        {
+            $('#validations').hide();
+        }
+        $(function () {
+            $("#birth_date").datepicker({maxDate: new Date()});
+        });
+        
+        $("#username").change(function(){
+           var username = document.getElementById('username');
+           var email_validation = document.getElementById("email_validation");
+            $.ajax({
+                url: "http://prevmedsol.com/autosearch/validateUsername",
+                dataType: "json",
+                data: {
+                    email: $("#username").val()
+                },
+                success: function (data) {//alert(data);return;
+                    if(data == "error"){
+                        username.style.borderColor = "red";
+                        email_validation.innerHTML = "Email ID already registered";
+                        email_validation.style.display = "block";
+                        return false;
+                    } else {
+                        username.style.borderColor = "transparent";
+                        email_validation.style.display = "none";
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
